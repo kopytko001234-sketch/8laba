@@ -1,7 +1,7 @@
 <?php
   // Начинаем работу с сессиями 
   session_start();
-  include "users.php"; // Подключаем наш новый массив пользователей
+  include "users.php"; // Подключаем массив пользователей
   include "bbcodes.php"; // Подключаем обработку BB-кодов
 ?>
 <html>
@@ -25,6 +25,7 @@
 
       <div id="right">
         <?php
+        // ИСПРАВЛЕНИЕ: Проверяем, передан ли action, чтобы не было Warning
         $action = isset($_GET['action']) ? $_GET['action'] : "none";
         
         // Обработка выхода с сайта
@@ -39,10 +40,10 @@
             $login = $_POST['login'];
             $pwd = $_POST['pwd'];
             
-            // Проверяем по нашему новому структурированному массиву
+            // Проверяем пользователя
             if(isset($users[$login]) && $users[$login]['pwd'] == $pwd) {
               $_SESSION["autorized"] = true;
-              $_SESSION["user"] = $users[$login]['name']; // Сохраняем ФИО в сессию
+              $_SESSION["user"] = $users[$login]['name']; 
             } else {
               $_SESSION["autorized"] = false;
             }
@@ -51,6 +52,7 @@
         
         // Логика отображения страниц
         if(isset($_SESSION["autorized"]) && $_SESSION["autorized"] == true) {
+          // ИСПРАВЛЕНИЕ: Безопасно принимаем page и news
           $p = isset($_GET['page']) ? $_GET['page'] : 0;
           $news = isset($_GET['news']) ? $_GET['news'] : 0;
           
@@ -60,7 +62,7 @@
           } elseif($p == 1) {
             $xml_file = "news.xml";
           } elseif($p == 2) {
-            $xml_file = "contacts.xml"; // Страница контактов
+            $xml_file = "contacts.xml";
           } else {
             $xml_file = "main.xml";
           }
