@@ -1,6 +1,8 @@
-        <h2>Навигация</h2>
-        <ul>
-          <li><a href="index.php">Главная</a></li>
-          <li><a href="index.php?page=1">Новости</a></li>
-          <li><a href="index.php?page=2">Контакты</a></li>
-        </ul>
+<div class="block">
+  <h2>РќР°РІРёРіР°С†РёСЏ</h2>
+  <ul>
+    <li><a href="index.php?page=0">Р“Р»Р°РІРЅР°СЏ</a></li>
+    <li><a href="index.php?page=1">РќРѕРІРѕСЃС‚Рё</a></li>
+    <li><a href="index.php?page=2">РљРѕРЅС‚Р°РєС‚С‹</a></li>
+  </ul>
+</div>
