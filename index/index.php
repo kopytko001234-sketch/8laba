@@ -68,4 +68,35 @@
                 echo parse_bb_codes($s->data[$i]->text);
               }
             } else if($p == 1 && $news == 0) {
-              for($i = 0; $i < (int)$s->datacount[0]; $i
+              for($i = 0; $i < (int)$s->datacount[0]; $i++) {
+                $news_id = $i + 1;
+                echo "<h2><a href='index.php?page=1&news=" . $news_id . "'>" . $s->data[$i]->header . "</a></h2>";  
+                echo "<h4>" . $s->data[$i]->date . "</h4>";
+                echo parse_bb_codes($s->data[$i]->shorttext);
+                echo "<hr>";
+              }
+            } else if($p == 1 && $news != 0) {
+              $idx = (int)$news - 1;
+              if(isset($s->data[$idx])) {
+                echo "<h2>" . $s->data[$idx]->header . "</h2>";  
+                echo "<h4>" . $s->data[$idx]->date . "</h4>";
+                echo parse_bb_codes($s->data[$idx]->text);
+                echo "<p><br><a href='index.php?page=1'>&larr; Назад к списку новостей</a></p>";
+              }
+            }
+          } else {
+            echo "<p>Файл данных не найден.</p>";
+          }
+        } else {
+          include "error.php";
+        }
+        ?>
+      </div>
+    </div>
+    
+    <div id="footer">
+       <?php include "footer.php" ?>
+    </div>
+  </div>
+</body>
+</html>
