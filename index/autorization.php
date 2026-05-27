@@ -1,18 +1,13 @@
- <?php if($_SESSION["autorized"] != true) { ?>
-   <h2>Вход</h2>
-   <form method="post">
-   Пользователь: 
-   <div align="right"><input name="login" type="text"></div>  
-   Пароль: 
-   <div align="right"><input name="pwd" type="password"></div>
-   <div align="right"><input name="ok" type="submit" value="Войти"></div>
-   </form>
- <?php } 
-   else {
-?>
-<h2>Пользователь:</h2>
-<p align = "center">
-<?php echo $_SESSION["user"]; ?>
-</p>
-<div align="center"><a href="index.php?action=exit">Выйти</a></div>
-   <?php } ?>
+<div class="block">
+  <h2>Р’С…РѕРґ</h2>
+  <?php if(isset($_SESSION["autorized"]) && $_SESSION["autorized"] == true): ?>
+    <p style="padding: 10px 0;">Р’С‹ РІРѕС€Р»Рё РєР°Рє:<br><strong><?php echo $_SESSION["user"]; ?></strong></p>
+    <p><a href="index.php?action=exit">Р’С‹Р№С‚Рё</a></p>
+  <?php else: ?>
+    <form action="index.php" method="POST" style="margin: 0; padding: 5px;">
+      Р›РѕРіРёРЅ:<br><input type="text" name="login" style="width:100%; max-width:140px;"><br>
+      РџР°СЂРѕР»СЊ:<br><input type="password" name="pwd" style="width:100%; max-width:140px;"><br>
+      <input type="submit" value="Р’РѕР№С‚Рё" style="margin-top: 8px;">
+    </form>
+  <?php endif; ?>
+</div>
