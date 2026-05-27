@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root>
+  <datacount>1</datacount>
+  <data>
+    <header>Контакты</header>
+    <description>Контактная информация</description>
+    <date></date>
+    <text>
+      [p][bl]Если у вас возникли вопросы по работе нашего сайта, вы можете связаться с администрацией проекта.[/p]
+      [p][bl]E-mail: nikita_001234@list.ru[/p]
+      [p][bl]Разработчик: Царский Никита Сергеевич[/p]
+    </text>
+  </data>
+</root>
